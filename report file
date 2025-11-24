@@ -1,0 +1,2163 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Super-capacitors as an Energy Storage System: A Comprehensive Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid #e2e8f0;
+            z-index: 40;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .main-content {
+            margin-left: 300px;
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .bento-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .bento-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+            margin: 4rem 0;
+        }
+        
+        .chart-container {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .citation {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            margin: 0 0.2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .citation:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        .toc-link:hover {
+            color: var(--accent);
+            background: #f1f5f9;
+            padding-left: 0.5rem;
+        }
+        
+        .toc-link.active {
+            color: var(--accent);
+            font-weight: 600;
+            background: #f1f5f9;
+            padding-left: 0.5rem;
+        }
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Enhanced mermaid node styling for better contrast */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            stroke-width: 2px !important;
+            stroke: var(--accent) !important;
+        }
+        
+        .mermaid .node .label {
+            color: var(--text-primary) !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            font-family: 'Inter', sans-serif !important;
+            fill: var(--text-primary) !important;
+        }
+        
+        .mermaid .edgePath .path {
+            stroke: var(--secondary) !important;
+            stroke-width: 2px !important;
+        }
+        
+        .mermaid .edgeLabel {
+            background-color: var(--surface) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--accent) !important;
+            border-radius: 4px !important;
+            padding: 4px 8px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Ensure proper contrast for different node colors */
+        .mermaid .node[style*="fill:#93c5fd"] .label,
+        .mermaid .node[style*="fill:#a5b4fc"] .label,
+        .mermaid .node[style*="fill:#c7d2fe"] .label {
+            fill: var(--text-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        .mermaid .node[style*="fill:#fbbf24"] .label,
+        .mermaid .node[style*="fill:#fcd34d"] .label {
+            fill: var(--text-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        .mermaid .node[style*="fill:#86efac"] .label,
+        .mermaid .node[style*="fill:#a5f3fc"] .label,
+        .mermaid .node[style*="fill:#e0e7ff"] .label {
+            fill: var(--text-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        /* Default text color for all nodes */
+        .mermaid text {
+            font-family: 'Inter', sans-serif !important;
+        }
+        
+        /* Ensure proper text rendering in all mermaid elements */
+        .mermaid .nodeLabel,
+        .mermaid .node text,
+        .mermaid .edgeLabel text {
+            color: var(--text-primary) !important;
+            fill: var(--text-primary) !important;
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 500 !important;
+        }
+        
+@media (max-width: 1024px) {
+    .toc-fixed {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .toc-fixed.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .mermaid-control-btn:not(.reset-zoom) {
+        display: none;
+    }
+    .mermaid-controls {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Responsive mermaid controls for small screens */
+    .mermaid-container {
+        padding: 10px;
+        margin: 15px 0;
+    }
+}
+
+/* Additional media query for small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-section .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .prose, .highlight-box, .chart-container {
+        padding: 1rem;
+    }
+    .mermaid-container {
+        padding: 15px;
+    }
+    .mermaid-controls {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+    }
+    .mermaid-control-btn {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+}
+    </style>
+  <base target="_blank">
+</head>
+
+  <body>
+    <!-- Mobile TOC Toggle -->
+    <button id="toc-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Table of Contents -->
+    <nav id="toc" class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="serif-heading text-xl font-bold text-gray-900 mb-4">Contents</h3>
+        <div class="space-y-1">
+          <a href="#introduction" class="toc-link">1. Introduction</a>
+          <div class="ml-4 space-y-1">
+            <a href="#definition" class="toc-link text-sm">1.1 Definition</a>
+            <a href="#history" class="toc-link text-sm">1.2 Historical Development</a>
+            <a href="#landscape" class="toc-link text-sm">1.3 Modern Landscape</a>
+          </div>
+          <a href="#principles" class="toc-link">2. Fundamental Principles</a>
+          <div class="ml-4 space-y-1">
+            <a href="#mechanisms" class="toc-link text-sm">2.1 Storage Mechanisms</a>
+            <a href="#classification" class="toc-link text-sm">2.2 Classification</a>
+          </div>
+          <a href="#electrodes" class="toc-link">3. Electrode Materials</a>
+          <div class="ml-4 space-y-1">
+            <a href="#carbon" class="toc-link text-sm">3.1 Carbon-Based</a>
+            <a href="#metal-oxides" class="toc-link text-sm">3.2 Metal Oxides</a>
+            <a href="#polymers" class="toc-link text-sm">3.3 Conductive Polymers</a>
+          </div>
+          <a href="#electrolytes" class="toc-link">4. Electrolytes</a>
+          <a href="#performance" class="toc-link">5. Performance Metrics</a>
+          <a href="#applications" class="toc-link">6. Applications</a>
+          <a href="#challenges" class="toc-link">7. Challenges</a>
+          <a href="#future" class="toc-link">8. Future Outlook</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container mx-auto px-8 py-16 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 class="serif-heading text-5xl lg:text-7xl font-bold mb-6 italic leading-tight">
+                Super-capacitors
+                <span class="text-blue-300 block">Energy Storage Revolution</span>
+              </h1>
+              <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                Bridging the gap between conventional capacitors and batteries, supercapacitors deliver unprecedented power density and cycle life for the next generation of energy storage solutions.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <div class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition-all cursor-pointer">
+                  <i class="fas fa-bolt mr-2"></i>High Power Density
+                </div>
+                <div class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition-all cursor-pointer">
+                  <i class="fas fa-recycle mr-2"></i>Million+ Cycles
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/67ef8662e8f2462e57b03337c3646057701682d2.PNG" alt="Supercapacitor energy storage device" class="w-full rounded-lg shadow-2xl" size="large" aspect="wide" style="photo" query="supercapacitor energy storage device" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+            </div>
+          </div>
+
+          <!-- Key Highlights -->
+          <div class="bento-grid mt-16">
+            <div class="bento-card">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-battery-full text-2xl text-blue-300 mr-3"></i>
+                <h3 class="serif-heading text-lg font-semibold">Energy Storage</h3>
+              </div>
+              <p class="text-gray-300">10-100x more energy than conventional capacitors</p>
+            </div>
+            <div class="bento-card">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-tachometer-alt text-2xl text-green-300 mr-3"></i>
+                <h3 class="serif-heading text-lg font-semibold">Rapid Charging</h3>
+              </div>
+              <p class="text-gray-300">Charge in seconds, discharge in milliseconds</p>
+            </div>
+            <div class="bento-card">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-infinity text-2xl text-purple-300 mr-3"></i>
+                <h3 class="serif-heading text-lg font-semibold">Longevity</h3>
+              </div>
+              <p class="text-gray-300">Millions of cycles with minimal degradation</p>
+            </div>
+            <div class="bento-card">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-thermometer-half text-2xl text-red-300 mr-3"></i>
+                <h3 class="serif-heading text-lg font-semibold">Temperature Range</h3>
+              </div>
+              <p class="text-gray-300">Operates from -40°C to +65°C</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction" class="py-16 px-8">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Introduction to Super-capacitors</h2>
+
+          <div id="definition" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Definition and Overview</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                A supercapacitor (SC), also referred to as an ultracapacitor, is a high-capacity electrochemical energy storage device that bridges the performance gap between conventional electrolytic capacitors and rechargeable batteries <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>. Unlike standard capacitors that utilize a solid dielectric material, supercapacitors employ <strong>electrostatic double-layer capacitance and electrochemical pseudocapacitance</strong> to store energy <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>.
+              </p>
+
+              <div class="highlight-box">
+                <h4 class="font-semibold mb-3">Key Characteristics</h4>
+                <ul class="space-y-2">
+                  <li><strong>High Capacitance:</strong> Stores 10 to 100 times more energy per unit mass or volume than conventional capacitors</li>
+                  <li><strong>Rapid Charge/Discharge:</strong> Accepts and delivers charge much faster than batteries</li>
+                  <li><strong>Long Cycle Life:</strong> Endures hundreds of thousands to millions of cycles with minimal degradation</li>
+                  <li><strong>High Power Density:</strong> Ideal for applications requiring rapid bursts of power</li>
+                </ul>
+              </div>
+
+              <p class="text-lg leading-relaxed">
+                The fundamental architecture of a supercapacitor consists of two electrodes, an electrolyte, and a separator that prevents direct electrical contact between the electrodes. The choice of electrode materials and electrolytes plays a crucial role in determining the device&#39;s overall performance, including its energy density, power density, and operational voltage window <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>.
+              </p>
+            </div>
+          </div>
+
+          <div id="history" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Historical Development and Key Milestones</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                The history of supercapacitors dates back to the early 1950s when engineers at General Electric began experimenting with porous carbon electrodes in the design of capacitors, drawing inspiration from fuel cell and rechargeable battery technologies <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <div class="flex items-center mb-4">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                    <span class="font-semibold text-gray-700">1957 - The Beginning</span>
+                  </div>
+                  <p class="text-gray-600">H. Becker developed a &#34;Low voltage electrolytic capacitor with porous carbon electrodes&#34; at General Electric, noting extremely high capacity but not fully understanding the underlying mechanism <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <div class="flex items-center mb-4">
+                    <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <span class="font-semibold text-gray-700">1966 - SOHIO Innovation</span>
+                  </div>
+                  <p class="text-gray-600">Researchers at Standard Oil of Ohio developed another version as an &#34;electrical energy storage apparatus&#34; while working on experimental fuel cell designs <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>.</p>
+                </div>
+              </div>
+
+              <p class="text-lg leading-relaxed">
+                The 1990s saw a surge in research activity, with the number of non-patent publications on supercapacitors increasing tenfold every seven years <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>. This period was marked by the development of new electrode materials, including metal oxides and conductive polymers, which introduced pseudocapacitance as a complementary energy storage mechanism.
+              </p>
+            </div>
+          </div>
+
+          <div id="landscape" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Role in the Modern Energy Landscape</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                In the modern energy landscape, supercapacitors have emerged as a critical technology for addressing the growing demand for efficient, reliable, and sustainable energy storage solutions. Their unique combination of <strong>high power density, fast charge-discharge capabilities, and long cycle life</strong> makes them an ideal choice for a wide range of applications, from portable electronics to grid-scale energy storage <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+              </p>
+
+              <div class="image-container my-8">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.led-professional.com/6e6dd76b505bb2794c0ab4e0a54ed76a256393e5.png" alt="Supercapacitors integrated with solar panels and wind turbines" class="w-full" size="large" aspect="wide" style="photo" query="renewable energy supercapacitor integration" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 text-white">
+                  <p class="text-sm">Supercapacitors in renewable energy systems</p>
+                </div>
+              </div>
+
+              <p class="text-lg leading-relaxed mb-6">
+                The transportation sector is another key area where supercapacitors are making a significant impact. In electric and hybrid electric vehicles, supercapacitors are used for <strong>regenerative braking</strong>, capturing and storing energy that would otherwise be lost during deceleration <a href="https://en.wikipedia.org/wiki/Supercapacitor" class="citation" target="_blank">15</a>. The <strong>Lamborghini Sian FKP 37</strong>, for instance, integrates a supercapacitor to boost acceleration alongside its V12 engine, showcasing the potential of this technology in high-performance automotive applications <a href="https://www.evengineeringonline.com/hypocap-an-award-winning-breakthrough-in-supercapacitor-energy/" class="citation" target="_blank">222</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Fundamental Principles Section -->
+      <section id="principles" class="py-16 px-8 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Fundamental Principles and Classification</h2>
+
+          <div id="mechanisms" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Energy Storage Mechanisms</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-8">
+                Supercapacitors represent a distinct class of energy storage devices that bridge the gap between conventional capacitors and batteries. Their ability to store and deliver energy is rooted in electrochemical principles, which differ fundamentally from the purely electrostatic mechanisms of traditional capacitors <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+              </p>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                  <h4 class="serif-heading text-xl font-semibold mb-4 text-blue-600">
+                    <i class="fas fa-layer-group mr-3"></i>Electrostatic Double-Layer Capacitance (EDLC)
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    EDLCs operate on the principle of <strong>electrostatic charge separation</strong>, using high-surface-area porous materials like activated carbon to achieve significantly enhanced capacitance values <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-sm text-blue-800">
+                      <strong>Key Features:</strong> Purely physical charge storage, exceptionally high power density, rapid charge/discharge, extremely long cycle life.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                  <h4 class="serif-heading text-xl font-semibold mb-4 text-green-600">
+                    <i class="fas fa-atom mr-3"></i>Electrochemical Pseudocapacitance
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    Pseudocapacitors store energy through <strong>Faradaic reactions</strong> involving reversible redox reactions at the electrode surface, enabling significantly higher specific capacitance and energy densities <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <p class="text-sm text-green-800">
+                      <strong>Key Features:</strong> Faradaic charge transfer, higher energy density, redox-active materials, fast surface kinetics.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="highlight-box">
+                <h4 class="font-semibold mb-3">Hybrid Energy Storage Mechanisms</h4>
+                <p class="mb-4">
+                  Hybrid supercapacitors integrate both EDLC and pseudocapacitive mechanisms into a single device, typically through an asymmetric design that pairs a carbon-based electrode with a pseudocapacitive electrode <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                </p>
+                <p>
+                  This approach synergistically combines the <strong>high power density and excellent cyclic stability of EDLCs with the high energy density characteristic of pseudocapacitors</strong>, creating next-generation energy storage systems that can meet demanding requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="classification" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Classification of Super-capacitors</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-8">
+                Supercapacitors are broadly classified into three primary categories based on their underlying energy storage mechanisms and the materials used in their construction: <strong>electrochemical double-layer capacitors (EDLCs), pseudocapacitors, and hybrid capacitors</strong>
+                <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                  <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-layer-group text-2xl text-blue-600"></i>
+                  </div>
+                  <h4 class="font-semibold mb-2">EDLCs</h4>
+                  <p class="text-sm text-gray-600">Carbon-based materials, electrostatic storage, high power density</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-atom text-2xl text-green-600"></i>
+                  </div>
+                  <h4 class="font-semibold mb-2">Pseudocapacitors</h4>
+                  <p class="text-sm text-gray-600">Metal oxides/conductive polymers, Faradaic reactions, high energy density</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                  <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-puzzle-piece text-2xl text-purple-600"></i>
+                  </div>
+                  <h4 class="font-semibold mb-2">Hybrid</h4>
+                  <p class="text-sm text-gray-600">Combined mechanisms, asymmetric design, balanced performance</p>
+                </div>
+              </div>
+
+              <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h4 class="serif-heading text-xl font-semibold mb-4">Electrolyte-Based Classification</h4>
+                <p class="mb-4">
+                  Supercapacitors can also be classified based on their electrolyte type, which significantly impacts performance characteristics <a href="https://www.nature.com/articles/s41598-025-24042-3" class="citation" target="_blank">228</a>:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <h5 class="font-semibold text-blue-700">Aqueous Electrolytes</h5>
+                    <p class="text-sm text-gray-600">High conductivity, low cost, narrow voltage window (1.2V)</p>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <h5 class="font-semibold text-green-700">Organic Electrolytes</h5>
+                    <p class="text-sm text-gray-600">Wider voltage window (2.7V), commercial standard</p>
+                  </div>
+                  <div class="border-l-4 border-purple-500 pl-4">
+                    <h5 class="font-semibold text-purple-700">Ionic Liquids</h5>
+                    <p class="text-sm text-gray-600">Very wide window (3.5-4.0V), high thermal stability</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Electrode Materials Section -->
+      <section id="electrodes" class="py-16 px-8">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Core Components: Electrode Materials</h2>
+
+          <div class="prose prose-lg max-w-none mb-12">
+            <p class="text-lg leading-relaxed">
+              The performance of a supercapacitor is fundamentally dictated by the properties of its constituent materials, with the electrode material playing the most critical role. An ideal electrode material must possess a unique combination of characteristics to ensure optimal device performance <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+            </p>
+          </div>
+
+          <div id="carbon" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Carbon-Based Materials</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                Carbon-based materials have long been the cornerstone of supercapacitor electrode technology, particularly for EDLCs, due to their exceptional combination of properties. These materials are characterized by their <strong>high specific surface area (SSA)</strong>, excellent electrical conductivity, and remarkable chemical and thermal stability <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+              </p>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <h4 class="serif-heading text-lg font-semibold mb-4 text-blue-600">
+                    <i class="fas fa-fire mr-2"></i>Activated Carbon (AC)
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    The most widely used commercial electrode material, with specific surface areas exceeding <strong>2000 m²/g</strong>. Created through carbonization and activation of carbon-rich precursors like coconut shells and wood <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-blue-50 p-3 rounded">
+                    <p class="text-sm text-blue-800">
+                      <strong>Structure:</strong> Network of micropores (
+                      &lt; 2 nm) and mesopores (2-50 nm) for ion adsorption and transport</p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <h4 class="serif-heading text-lg font-semibold mb-4 text-green-600">
+                    <i class="fas fa-hexagon mr-2"></i>Graphene and rGO
+                  </h4>
+                  <p class="text-gray-700 mb-4">
+                    Single-layer sp²-hybridized carbon atoms with exceptional theoretical specific surface area of <strong>2630 m²/g</strong> and outstanding electrical conductivity <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-green-50 p-3 rounded">
+                    <p class="text-sm text-green-800">
+                      <strong>Challenge:</strong> Preventing restacking and aggregation of graphene sheets
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="highlight-box">
+                <h4 class="font-semibold mb-3">Carbon Nanotubes and Carbon Nanofibers</h4>
+                <p class="mb-4">
+                  One-dimensional carbon materials with high aspect ratio, excellent electrical conductivity, and unique porous structure that facilitates rapid ion transport. CNTs can be single-walled (SWCNTs) or multi-walled (MWCNTs), creating highly conductive pathways throughout the electrode <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                </p>
+                <p>
+                  <strong>Performance Example:</strong> SWCNTs as spacers in graphene-based supercapacitors achieved <strong>261 F/g specific capacitance and 123 Wh/kg energy density</strong> at 3.7V operating voltage.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="metal-oxides" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Transition Metal Oxides and Sulfides</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                Transition metal oxides (TMOs) and sulfides (TMSs) have emerged as highly promising electrode materials for pseudocapacitors, offering significantly higher energy densities compared to carbon-based EDLCs. These materials store charge through <strong>fast and reversible Faradaic redox reactions</strong> at their surface <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+                  <h4 class="font-semibold text-blue-700 mb-3">Ruthenium Oxide (RuO₂)</h4>
+                  <p class="text-gray-700 mb-3">
+                    Considered the gold standard with <strong>specific capacitance exceeding 1000 F/g</strong>, excellent electrical conductivity, and outstanding electrochemical stability <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-red-50 p-3 rounded">
+                    <p class="text-sm text-red-800">
+                      <strong>Limitation:</strong> High cost and toxicity of ruthenium limit commercial applications
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-500">
+                  <h4 class="font-semibold text-green-700 mb-3">Manganese Dioxide (MnO₂)</h4>
+                  <p class="text-gray-700 mb-3">
+                    Abundant, inexpensive, and environmentally benign alternative with <strong>theoretical specific capacitance up to 1370 F/g</strong>
+                    <a href="https://www.mdpi.com/2313-0105/11/6/232" class="citation" target="_blank">2</a>.
+                  </p>
+                  <div class="bg-yellow-50 p-3 rounded">
+                    <p class="text-sm text-yellow-800">
+                      <strong>Challenge:</strong> Poor electrical conductivity limits rate capability
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-purple-500">
+                  <h4 class="font-semibold text-purple-700 mb-3">Nickel Oxide (NiO)</h4>
+                  <p class="text-gray-700 mb-3">
+                    High theoretical specific capacitance of <strong>approximately 2584 F g⁻¹</strong>, with charge storage based on reversible redox reaction between Ni²⁺ and Ni³⁺/Ni⁴⁺ states <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aesr.202400412" class="citation" target="_blank">41</a>.
+                  </p>
+                  <div class="bg-blue-50 p-3 rounded">
+                    <p class="text-sm text-blue-800">
+                      <strong>Performance:</strong> Al-doped Ni(OH)₂ nanosheets demonstrated <strong>2123 F g⁻¹</strong> specific capacitance
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-orange-500">
+                  <h4 class="font-semibold text-orange-700 mb-3">Cobalt Oxide (Co₃O₄)</h4>
+                  <p class="text-gray-700 mb-3">
+                    Very high theoretical specific capacitance of <strong>up to 3560 F g⁻¹</strong>, with rich redox chemistry involving Co²⁺/Co³⁺ and Co³⁺/Co⁴⁺ couples <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aesr.202400412" class="citation" target="_blank">41</a>.
+                  </p>
+                  <div class="bg-green-50 p-3 rounded">
+                    <p class="text-sm text-green-800">
+                      <strong>Achievement:</strong> 3D hollow structures reached <strong>820 F g⁻¹</strong> specific capacitance
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+                <h4 class="font-semibold text-purple-700 mb-3">
+                  <i class="fas fa-star mr-2"></i>Transition Metal Sulfides - Emerging Stars
+                </h4>
+                <p class="text-gray-700 mb-4">
+                  Transition metal sulfides (TMSs) offer superior performance compared to their oxide counterparts. The substitution of oxygen with sulfur leads to materials with <strong>higher electrical conductivity and more flexible structures</strong>, resulting in enhanced rate capability and improved cycling stability <a href="https://pubs.rsc.org/en/content/articlelanding/2025/ra/d5ra02905h" class="citation" target="_blank">33</a>.
+                </p>
+                <div class="bg-white p-4 rounded border">
+                  <p class="text-sm text-gray-800">
+                    <strong>Outstanding Performance:</strong> NiMoO₄@NiCo₂S₄ composite achieved <strong>2565.2 F g⁻¹</strong> specific capacitance, delivering <strong>75.3 Wh kg⁻¹</strong> energy density at <strong>800 W kg⁻¹</strong> power density <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12451529/" class="citation" target="_blank">59</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="polymers" class="mb-16">
+            <h3 class="serif-heading text-2xl font-semibold mb-6">Conductive Polymers</h3>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-6">
+                Conductive polymers (CPs) represent another vital class of pseudocapacitive materials, offering a unique combination of properties that make them highly attractive for supercapacitor electrodes. Unlike rigid inorganic materials, CPs are <strong>flexible, lightweight, and can be synthesized through relatively simple and low-cost chemical or electrochemical polymerization methods</strong>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352152X24002822" class="citation" target="_blank">54</a>.
+              </p>
+
+              <div class="mermaid-container">
+                <div class="mermaid-controls">
+                  <button class="mermaid-control-btn zoom-in" title="放大">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                  <button class="mermaid-control-btn zoom-out" title="缩小">
+                    <i class="fas fa-search-minus"></i>
+                  </button>
+                  <button class="mermaid-control-btn reset-zoom" title="重置">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                  </button>
+                  <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+                <div class="mermaid" id="polymer-chart">
+                  graph TD
+                  A[&#34;Conductive Polymers&#34;] --&gt; B[&#34;Polyaniline (PANI)&#34;]
+                  A --&gt; C[&#34;Polypyrrole (PPy)&#34;]
+                  A --&gt; D[&#34;PEDOT:PSS&#34;]
+                  B --&gt; E[&#34;Theoretical Capacitance: 2000 F/g&#34;]
+                  C --&gt; F[&#34;Conductivity: 10⁻³-100 S/cm&#34;]
+                  D --&gt; G[&#34;Conductivity: &gt;1000 S/cm&#34;]
+
+                  classDef primaryNode fill:#93c5fd,stroke:#1e293b,stroke-width:2px,color:#1e293b
+                  classDef secondaryNode fill:#a5b4fc,stroke:#1e293b,stroke-width:2px,color:#1e293b
+                  classDef tertiaryNode fill:#c7d2fe,stroke:#1e293b,stroke-width:2px,color:#1e293b
+
+                  class A primaryNode
+                  class B,C,D secondaryNode
+                  class E,F,G tertiaryNode
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <h4 class="font-semibold text-blue-600 mb-3">
+                    <i class="fas fa-flask mr-2"></i>Polyaniline (PANI)
+                  </h4>
+                  <p class="text-gray-700 mb-3">
+                    Most extensively studied CP with straightforward synthesis and exceptional electrochemical properties. Exists in three oxidation states with emeraldine salt form being conductive <a href="https://www.mdpi.com/2073-4360/17/17/2346" class="citation" target="_blank">66</a>.
+                  </p>
+                  <div class="bg-blue-50 p-3 rounded">
+                    <p class="text-sm text-blue-800">
+                      <strong>Performance:</strong> Theoretical capacitance ~2000 F g⁻¹, tunable conductivity from 10⁻⁹ to 100 S/cm
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <h4 class="font-semibold text-green-600 mb-3">
+                    <i class="fas fa-ring mr-2"></i>Polypyrrole (PPy)
+                  </h4>
+                  <p class="text-gray-700 mb-3">
+                    High electronic conductivity (10⁻³-100 S cm⁻¹) and fast charge transfer kinetics. Based on conjugated pyrrole rings with good affinity for carbon-based substrates <a href="https://www.mdpi.com/2227-9717/12/1/31" class="citation" target="_blank">76</a>.
+                  </p>
+                  <div class="bg-green-50 p-3 rounded">
+                    <p class="text-sm text-green-800">
+                      <strong>Challenge:</strong> Lower cycling stability due to mechanical degradation
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                  <h4 class="font-semibold text-purple-600 mb-3">
+                    <i class="fas fa-shield-alt mr-2"></i>PEDOT:PSS
+                  </h4>
+                  <p class="text-gray-700 mb-3">
+                    Leading conductive polymer with exceptional stability, high conductivity (&gt;1000 S/cm), and water dispersibility for easy fabrication <a href="https://www.mdpi.com/2073-4360/17/17/2346" class="citation" target="_blank">66</a>.
+                  </p>
+                  <div class="bg-purple-50 p-3 rounded">
+                    <p class="text-sm text-purple-800">
+                      <strong>Advantage:</strong> Minimal structural disruption during redox process
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg">
+                <h4 class="font-semibold text-yellow-800 mb-3">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>Common Challenge: Cycling Stability
+                </h4>
+                <p class="text-yellow-700">
+                  A major drawback of many conductive polymers is their <strong>poor long-term cycling stability</strong>. The repeated swelling and shrinking of the polymer matrix during ion insertion/extraction can lead to mechanical degradation and gradual capacitance decline <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8151924/" class="citation" target="_blank">60</a>.
+                </p>
+                <p class="text-yellow-700 mt-3">
+                  <strong>Solutions:</strong> Creating nanostructured polymers, forming composites with carbon materials, and designing novel polymer architectures to enhance mechanical integrity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Electrolytes Section -->
+      <section id="electrolytes" class="py-16 px-8 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Core Components: Electrolytes and Ion Transport</h2>
+
+          <div class="prose prose-lg max-w-none mb-12">
+            <p class="text-lg leading-relaxed">
+              The electrolyte is a critical component in a supercapacitor, serving as the medium for ion transport between the positive and negative electrodes. Its properties, including <strong>ionic conductivity, electrochemical stability, viscosity, and operating temperature range</strong>, profoundly influence the overall performance of the device <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11582294/" class="citation" target="_blank">173</a>.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-tint mr-3"></i>Aqueous Electrolytes
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Water-based electrolytes with exceptionally high ionic conductivity (up to 800 mS/cm) and low cost. Common examples include H₂SO₄, KOH, and Na₂SO₄ solutions <a href="https://link.springer.com/article/10.1007/s42247-025-01284-5" class="citation" target="_blank">160</a>.
+              </p>
+              <div class="space-y-3">
+                <div class="bg-blue-50 p-3 rounded">
+                  <p class="text-sm text-blue-800">
+                    <strong>Advantage:</strong> High ionic conductivity, low cost, non-flammable
+                  </p>
+                </div>
+                <div class="bg-red-50 p-3 rounded">
+                  <p class="text-sm text-red-800">
+                    <strong>Limitation:</strong> Narrow voltage window (~1.2V), corrosive nature
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-green-50 rounded">
+                <p class="text-sm text-green-800">
+                  <strong>Innovation:</strong> Zn²⁺-driven cellulose hydrogel extends voltage window to <strong>2V</strong> by inhibiting water electrolysis <a href="https://figshare.com/collections/A_High-Voltage_Supercapacitor_Electrolyte_Based_on_Zn_sup_2_sup_-Driven_Self-Adhesive_Cellulose_Hydrogel/7841958" class="citation" target="_blank">164</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-flask mr-3"></i>Organic Electrolytes
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Most common in commercial supercapacitors, using solvents like acetonitrile (AN) or propylene carbonate (PC) with salts such as TEABF₄. Key advantage is wider electrochemical stability window <a href="https://link.springer.com/article/10.1007/s42247-025-01284-5" class="citation" target="_blank">160</a>.
+              </p>
+              <div class="space-y-3">
+                <div class="bg-green-50 p-3 rounded">
+                  <p class="text-sm text-green-800">
+                    <strong>Advantage:</strong> Wide voltage window (2.7-3.0V), high energy density
+                  </p>
+                </div>
+                <div class="bg-yellow-50 p-3 rounded">
+                  <p class="text-sm text-yellow-800">
+                    <strong>Drawbacks:</strong> Lower conductivity, flammability concerns, higher cost
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-blue-50 rounded">
+                <p class="text-sm text-blue-800">
+                  <strong>Performance:</strong> AN-based electrolyte shows excellent stability, retaining over <strong>95% capacity after 100,000 cycles</strong> at 2.7V <a href="https://link.springer.com/article/10.1007/s42247-025-01284-5" class="citation" target="_blank">160</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-purple-600">
+                <i class="fas fa-atom mr-3"></i>Ionic Liquids (ILs)
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Salts that are liquid at room temperature, offering exceptional properties for next-generation supercapacitors. Composed entirely of ions with very wide electrochemical stability window <a href="https://link.springer.com/article/10.1007/s42247-025-01284-5" class="citation" target="_blank">160</a>.
+              </p>
+              <div class="space-y-3">
+                <div class="bg-purple-50 p-3 rounded">
+                  <p class="text-sm text-purple-800">
+                    <strong>Benefits:</strong> Very wide window (3.5-4.0V), high thermal stability, non-flammable
+                  </p>
+                </div>
+                <div class="bg-red-50 p-3 rounded">
+                  <p class="text-sm text-red-800">
+                    <strong>Challenges:</strong> High viscosity (70 mPa·s), high cost (&gt; $500/kg)
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-green-50 rounded">
+                <p class="text-sm text-green-800">
+                  <strong>Potential:</strong> EMIM-TFSI ionic liquid enables energy densities <strong>exceeding 50 Wh/kg</strong>, representing substantial improvement over conventional systems <a href="https://link.springer.com/article/10.1007/s42247-025-01284-5" class="citation" target="_blank">160</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-indigo-600">
+                <i class="fas fa-cube mr-3"></i>Solid-State Electrolytes
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Represent significant advancement offering enhanced safety, flexibility, and mechanical robustness. Eliminate risks of leakage, evaporation, and flammability associated with liquid systems <a href="https://pubs.acs.org/doi/10.1021/acsapm.5c02845" class="citation" target="_blank">161</a>.
+              </p>
+              <div class="space-y-3">
+                <div class="bg-indigo-50 p-3 rounded">
+                  <p class="text-sm text-indigo-800">
+                    <strong>Advantages:</strong> Enhanced safety, flexibility, no leakage risk
+                  </p>
+                </div>
+                <div class="bg-orange-50 p-3 rounded">
+                  <p class="text-sm text-orange-800">
+                    <strong>Challenge:</strong> Often lower ionic conductivity than liquid electrolytes
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-green-50 rounded">
+                <p class="text-sm text-green-800">
+                  <strong>Breakthrough:</strong> Epoxy-based solid polymer electrolyte achieved <strong>3.5V stable window</strong> and <strong>83.7 Wh/kg energy density</strong> with excellent thermal stability <a href="https://pubs.acs.org/doi/10.1021/acsapm.5c02845" class="citation" target="_blank">161</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3 class="font-semibold mb-4">
+              <i class="fas fa-chart-line mr-2"></i>Electrolyte Performance Comparison
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-gray-300">
+                    <th class="text-left py-2">Electrolyte Type</th>
+                    <th class="text-center py-2">Voltage Window</th>
+                    <th class="text-center py-2">Ionic Conductivity</th>
+                    <th class="text-center py-2">Cost</th>
+                    <th class="text-center py-2">Safety</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                  <tr class="border-b border-gray-200">
+                    <td class="py-2 font-medium">Aqueous</td>
+                    <td class="text-center py-2">~1.2V</td>
+                    <td class="text-center py-2">Very High (800 mS/cm)</td>
+                    <td class="text-center py-2">Low</td>
+                    <td class="text-center py-2">High</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-2 font-medium">Organic</td>
+                    <td class="text-center py-2">2.7-3.0V</td>
+                    <td class="text-center py-2">High</td>
+                    <td class="text-center py-2">Medium</td>
+                    <td class="text-center py-2">Medium</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-2 font-medium">Ionic Liquids</td>
+                    <td class="text-center py-2">3.5-4.0V</td>
+                    <td class="text-center py-2">Medium-Low</td>
+                    <td class="text-center py-2">Very High</td>
+                    <td class="text-center py-2">Very High</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 font-medium">Solid-State</td>
+                    <td class="text-center py-2">3.0-3.5V</td>
+                    <td class="text-center py-2">Low-Medium</td>
+                    <td class="text-center py-2">High</td>
+                    <td class="text-center py-2">Very High</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Performance Metrics Section -->
+      <section id="performance" class="py-16 px-8">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Performance Metrics and Characterization</h2>
+
+          <div class="prose prose-lg max-w-none mb-12">
+            <p class="text-lg leading-relaxed">
+              The performance of a supercapacitor is evaluated using a set of key performance indicators (KPIs) that quantify its energy storage and delivery capabilities. These metrics are essential for comparing different supercapacitor technologies and for selecting the most appropriate device for specific applications.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-battery-half mr-3"></i>Key Performance Indicators
+              </h3>
+
+              <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Capacitance</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Measure of charge storage ability, typically expressed as specific capacitance (F/g) for material comparison or areal capacitance (F/cm²) for footprint considerations.
+                  </p>
+                  <div class="bg-blue-50 p-2 rounded">
+                    <p class="text-xs text-blue-700">
+                      <strong>Measurement:</strong> Cyclic voltammetry (CV) and galvanostatic charge-discharge (GCD)
+                    </p>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Energy &amp; Power Density</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Energy density (Wh/kg or Wh/L) measures total energy storage, while power density (W/kg or W/L) measures energy delivery rate.
+                  </p>
+                  <div class="bg-green-50 p-2 rounded">
+                    <p class="text-xs text-green-700">
+                      <strong>Relationship:</strong> E = ½CV² for energy density
+                    </p>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Cycle Life &amp; Stability</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Number of charge-discharge cycles before performance degrades to specified level (typically 80% of initial capacitance).
+                  </p>
+                  <div class="bg-purple-50 p-2 rounded">
+                    <p class="text-xs text-purple-700">
+                      <strong>Supercapacitor Advantage:</strong> Hundreds of thousands to millions of cycles
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-microscope mr-3"></i>Characterization Techniques
+              </h3>
+
+              <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Cyclic Voltammetry (CV)</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Powerful technique where voltage is swept at constant rate while measuring current. Provides information about charge storage mechanism and capacitance.
+                  </p>
+                  <div class="bg-blue-50 p-2 rounded">
+                    <p class="text-xs text-blue-700">
+                      <strong>EDLC:</strong> Rectangular curve
+                      <br/>
+                      <strong>Pseudocapacitor:</strong> Peaks indicating redox reactions
+                    </p>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Galvanostatic Charge-Discharge (GCD)</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Device charged and discharged at constant current while measuring voltage vs. time. Determines capacitance, energy, and power density.
+                  </p>
+                  <div class="bg-green-50 p-2 rounded">
+                    <p class="text-xs text-green-700">
+                      <strong>EDLC:</strong> Straight line voltage profile
+                      <br/>
+                      <strong>Pseudocapacitor:</strong> Plateaus during redox reactions
+                    </p>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Electrochemical Impedance Spectroscopy (EIS)</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Small sinusoidal voltage applied across frequency range to study internal resistance and ion diffusion kinetics.
+                  </p>
+                  <div class="bg-purple-50 p-2 rounded">
+                    <p class="text-xs text-purple-700">
+                      <strong>Key Output:</strong> Nyquist plot showing equivalent series resistance (ESR)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3 class="font-semibold mb-4">
+              <i class="fas fa-trophy mr-2"></i>Performance Benchmarks
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-blue-600 mb-2">Commercial EDLCs</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Energy Density: 5-8 Wh/kg</li>
+                  <li>• Power Density: 10-15 kW/kg</li>
+                  <li>• Cycle Life: &gt;1 million cycles</li>
+                  <li>• Voltage: 2.7V</li>
+                </ul>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-green-600 mb-2">Research-Grade Devices</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Energy Density: 20-50 Wh/kg</li>
+                  <li>• Power Density: 15-20 kW/kg</li>
+                  <li>• Cycle Life: 100,000-500,000 cycles</li>
+                  <li>• Voltage: 3.0-4.0V</li>
+                </ul>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-purple-600 mb-2">Future Targets</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Energy Density: 50-100 Wh/kg</li>
+                  <li>• Power Density: 20-30 kW/kg</li>
+                  <li>• Cycle Life: &gt;1 million cycles</li>
+                  <li>• Voltage: 4.0-5.0V</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Applications Section -->
+      <section id="applications" class="py-16 px-8 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Applications in Energy Storage and Beyond</h2>
+
+          <div class="prose prose-lg max-w-none mb-12">
+            <p class="text-lg leading-relaxed">
+              Supercapacitors, with their unique combination of high power density, rapid charge-discharge capabilities, and exceptional cycle life, have emerged as a critical enabling technology across a diverse range of applications. The global market for supercapacitor energy storage systems is experiencing robust growth, valued at approximately <strong>$3 billion annually in 2025</strong> with projected CAGR of <strong>15%</strong> over the next five years <a href="https://www.marketreportanalytics.com/reports/super-capacitors-battery-energy-storage-system-85514" class="citation" target="_blank">128</a>.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-solar-panel mr-3"></i>Renewable Energy Integration
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Grid Stabilization</h4>
+                  <p class="text-sm text-gray-600">
+                    Rapid response time and high power density enable supercapacitors to absorb and release energy almost instantaneously, smoothing power fluctuations from solar and wind sources <a href="https://www.sciencedirect.com/science/article/pii/S2352152X24021492" class="citation" target="_blank">133</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Solar &amp; Wind Energy Storage</h4>
+                  <p class="text-sm text-gray-600">
+                    Buffer power fluctuations caused by passing clouds or wind speed variations, improving power quality and maximizing energy yield from renewable systems <a href="https://onlinelibrary.wiley.com/doi/10.1155/2024/4575761" class="citation" target="_blank">134</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Microgrids &amp; Distributed Resources</h4>
+                  <p class="text-sm text-gray-600">
+                    Provide frequency regulation, voltage support, and seamless transition between grid-connected and islanded operation modes in microgrid applications <a href="https://www.scupower.com/application-of-supercapacitor-and-battery-hybrid-energy-storage-system-in-microgrid/" class="citation" target="_blank">152</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                <p class="text-sm text-blue-800">
+                  <strong>Market Impact:</strong> The integration of supercapacitors with batteries in hybrid energy storage systems extends battery lifespan by reducing stress from rapid charge-discharge cycles.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-car mr-3"></i>Transportation &amp; Automotive
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Electric &amp; Hybrid Vehicles</h4>
+                  <p class="text-sm text-gray-600">
+                    Complement lithium-ion batteries in hybrid energy storage systems, providing high power for acceleration while extending battery lifespan <a href="https://energyinformatics.springeropen.com/articles/10.1186/s42162-025-00488-7" class="citation" target="_blank">154</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Regenerative Braking</h4>
+                  <p class="text-sm text-gray-600">
+                    Capture kinetic energy during deceleration with high efficiency, converting and storing energy that would otherwise be lost as heat <a href="https://www.marketreportanalytics.com/reports/supercapacitor-energy-storage-cell-85674" class="citation" target="_blank">145</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Start-Stop Systems</h4>
+                  <p class="text-sm text-gray-600">
+                    Provide reliable high-power bursts for engine restart in start-stop systems, reducing fuel consumption and emissions in urban driving conditions <a href="https://renewablesadvice.com/battery/what-are-supercapacitors-used-for/" class="citation" target="_blank">116</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-green-50 p-4 rounded-lg">
+                <p class="text-sm text-green-800">
+                  <strong>Luxury Application:</strong> The <strong>Lamborghini Sian FKP 37</strong> integrates supercapacitors for acceleration boost alongside its V12 engine, demonstrating high-performance automotive applications <a href="https://www.evengineeringonline.com/hypocap-an-award-winning-breakthrough-in-supercapacitor-energy/" class="citation" target="_blank">222</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-purple-600">
+                <i class="fas fa-mobile-alt mr-3"></i>Consumer Electronics
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Smartphones &amp; Wearables</h4>
+                  <p class="text-sm text-gray-600">
+                    Provide high power for features like flash photography and audio amplification, extending main battery life while enabling fast charging capabilities <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aesr.202400412" class="citation" target="_blank">129</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">IoT Devices</h4>
+                  <p class="text-sm text-gray-600">
+                    Integration with energy harvesting systems (solar, piezoelectric) creates self-powered devices that operate for extended periods without battery replacement <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aesr.202400412" class="citation" target="_blank">129</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Uninterruptible Power Supplies</h4>
+                  <p class="text-sm text-gray-600">
+                    Fast response time provides instantaneous backup power, ensuring no interruption to critical equipment in data centers, hospitals, and industrial systems.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-purple-50 p-4 rounded-lg">
+                <p class="text-sm text-purple-800">
+                  <strong>Innovation:</strong> Flexible and fiber-based supercapacitors can be seamlessly integrated into wearable medical sensors for continuous health monitoring.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-indigo-600">
+                <i class="fas fa-industry mr-3"></i>Industrial &amp; Grid-Scale
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Power Tools &amp; Heavy Machinery</h4>
+                  <p class="text-sm text-gray-600">
+                    Provide high power for peak-load operations, reducing main power source size while capturing regenerative energy during braking or load lowering.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Grid-Scale Energy Storage</h4>
+                  <p class="text-sm text-gray-600">
+                    Enable frequency regulation, voltage support, and load leveling services with rapid response time and high power density for grid stability.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Pulsed Power Applications</h4>
+                  <p class="text-sm text-gray-600">
+                    Deliver large amounts of energy in very short periods for electromagnetic launchers, medical defibrillators, and industrial welding applications <a href="https://renewablesadvice.com/battery/what-are-supercapacitors-used-for/" class="citation" target="_blank">116</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+                <p class="text-sm text-indigo-800">
+                  <strong>Specialized Use:</strong> Military and aerospace applications including UAVs and satellites benefit from supercapacitors&#39; ability to operate in extreme environments with high reliability.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200">
+            <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-800">
+              <i class="fas fa-rocket mr-3"></i>Emerging and Specialized Applications
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-blue-600 mb-2">
+                  <i class="fas fa-heartbeat mr-2"></i>Medical Devices
+                </h4>
+                <p class="text-sm text-gray-700">
+                  Implantable devices like pacemakers and defibrillators benefit from long cycle life and reliability. Flexible supercapacitors integrate seamlessly into wearable medical sensors <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aesr.202400412" class="citation" target="_blank">103</a>.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-green-600 mb-2">
+                  <i class="fas fa-fighter-jet mr-2"></i>Military &amp; Aerospace
+                </h4>
+                <p class="text-sm text-gray-700">
+                  UAVs, satellites, and other advanced systems requiring high performance and reliability in extreme environments. High power density for propulsion and onboard electronics <a href="https://renewablesadvice.com/battery/what-are-supercapacitors-used-for/" class="citation" target="_blank">116</a>.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="font-semibold text-purple-600 mb-2">
+                  <i class="fas fa-bolt mr-2"></i>Pulsed Power Systems
+                </h4>
+                <p class="text-sm text-gray-700">
+                  High-current applications including electromagnetic launchers, medical treatment systems, and industrial processing equipment requiring controlled energy release <a href="https://renewablesadvice.com/battery/what-are-supercapacitors-used-for/" class="citation" target="_blank">116</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Challenges Section -->
+      <section id="challenges" class="py-16 px-8">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Advantages, Limitations, and System Integration Challenges</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-check-circle mr-3"></i>Key Advantages
+              </h3>
+
+              <div class="space-y-6">
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">High Power Density &amp; Fast Charge/Discharge</h4>
+                  <p class="text-sm text-gray-600">
+                    Exceptionally high power density (several orders of magnitude greater than batteries) enables rapid energy delivery and absorption. Charge and discharge in seconds or minutes compared to hours for batteries <a href="https://www.scirp.org/journal/paperinformation?paperid=143807" class="citation" target="_blank">166</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Long Cycle Life &amp; High Reliability</h4>
+                  <p class="text-sm text-gray-600">
+                    Can withstand hundreds of thousands to millions of charge-discharge cycles with minimal degradation due to physical energy storage mechanism <a href="https://commons.und.edu/theses/7120/" class="citation" target="_blank">144</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Wide Operating Temperature Range</h4>
+                  <p class="text-sm text-gray-600">
+                    Capable of operating from -40°C to +65°C, making them suitable for automotive, aerospace, and industrial applications where extreme temperatures are common <a href="https://commons.und.edu/theses/7120/" class="citation" target="_blank">144</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-green-50 p-4 rounded-lg">
+                <p class="text-sm text-green-800">
+                  <strong>Additional Benefits:</strong> Low maintenance requirements, high reliability, resistance to shock and vibration, and environmentally friendly materials in many configurations.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-red-600">
+                <i class="fas fa-exclamation-triangle mr-3"></i>Key Limitations
+              </h3>
+
+              <div class="space-y-6">
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Lower Energy Density Compared to Batteries</h4>
+                  <p class="text-sm text-gray-600">
+                    Typical energy density of 5-20 Wh/kg is 20-40 times lower than lithium-ion batteries (100-265 Wh/kg), limiting use in applications requiring prolonged energy delivery <a href="https://www.sciencedirect.com/science/article/abs/pii/S1226086X24004593" class="citation" target="_blank">252</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-orange-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">High Initial Cost</h4>
+                  <p class="text-sm text-gray-600">
+                    Manufacturing complexity and specialized materials contribute to higher upfront investment compared to traditional energy storage solutions. Activated carbon cost needs to drop below $10/kg for true economic viability <a href="https://www.energy.gov/sites/default/files/2024-02/10_Technology%20Strategy%20Assessment%20-%20%2310%20Supercapacitors_508_rev.pdf" class="citation" target="_blank">238</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-yellow-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Self-Discharge and Voltage Drop</h4>
+                  <p class="text-sm text-gray-600">
+                    Relatively high self-discharge rate due to leakage currents, and linear voltage drop during discharge may require voltage regulation for stable output applications.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-red-50 p-4 rounded-lg">
+                <p class="text-sm text-red-800">
+                  <strong>Competitive Pressure:</strong> Continuously improving battery technologies with higher energy densities and decreasing costs create challenging market dynamics for supercapacitor adoption <a href="https://www.intelmarketresearch.com/supercapacitors-market-14655" class="citation" target="_blank">246</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="serif-heading text-xl font-semibold mb-6 text-indigo-600">
+              <i class="fas fa-puzzle-piece mr-3"></i>System Integration Challenges
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-4">
+                <div class="border-l-4 border-indigo-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Hybrid System Management</h4>
+                  <p class="text-sm text-gray-600">
+                    Sophisticated power management systems and control algorithms required to optimize energy flow between batteries and supercapacitors in hybrid configurations <a href="https://www.sciencedirect.com/science/article/pii/S2214157X25000759" class="citation" target="_blank">258</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Thermal Management</h4>
+                  <p class="text-sm text-gray-600">
+                    Heat generation due to internal resistance (ESR) requires effective thermal management strategies, especially in high-power cycling applications where temperature monitoring and control are critical <a href="https://www.mate-solar.com/2025-energy-storage-system-integration-technological-reconfiguration-reshaping-the-pv-ess-landscape/" class="citation" target="_blank">237</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Voltage Balancing</h4>
+                  <p class="text-sm text-gray-600">
+                    Low individual cell voltage (2.7-3.0V) requires series connections, necessitating sophisticated cell balancing circuits to prevent overcharging and ensure uniform performance across all cells.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Standardization Issues</h4>
+                  <p class="text-sm text-gray-600">
+                    Lack of universal standards for performance, sizing, and safety complicates integration into off-the-shelf systems, often requiring custom engineering solutions and increasing development complexity <a href="https://www.intelmarketresearch.com/supercapacitors-market-14655" class="citation" target="_blank">246</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 bg-indigo-50 p-4 rounded-lg">
+              <p class="text-sm text-indigo-800">
+                <strong>Solution Direction:</strong> Advanced control algorithms combining PIDA, PCA-KF, and ISGO optimization techniques show promise for managing hybrid energy storage systems, reducing battery power variance and improving overall system efficiency <a href="https://www.sciencedirect.com/science/article/pii/S2214157X25000759" class="citation" target="_blank">258</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Future Outlook Section -->
+      <section id="future" class="py-16 px-8 bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto max-w-4xl">
+          <h2 class="serif-heading text-4xl font-bold mb-8 text-center">Future Outlook and Innovation Directions</h2>
+
+          <div class="prose prose-lg max-w-none mb-12">
+            <p class="text-lg leading-relaxed">
+              The future of supercapacitor technology is poised for significant advancements as researchers and industry leaders continue to push the boundaries of energy storage science. With growing demand for sustainable energy solutions and the proliferation of electric vehicles and renewable energy systems, supercapacitors are positioned to play an increasingly critical role in the global energy landscape.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-atom mr-3"></i>Material Science Breakthroughs
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">2D Materials &amp; MXenes</h4>
+                  <p class="text-sm text-gray-600">
+                    Two-dimensional materials like MXenes (Ti₃C₂Tₓ) offer high metallic conductivity (up to 10,000 S/cm) and high density of redox-active sites, enabling both EDLC and pseudocapacitive charge storage mechanisms <a href="https://pubs.acs.org/doi/10.1021/acsnano.4c01787" class="citation" target="_blank">47</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Metal-Organic Frameworks</h4>
+                  <p class="text-sm text-gray-600">
+                    MOFs and COFs provide exceptionally high surface areas and well-defined pore structures with tunable redox-active sites, offering unprecedented control over electrode architecture and performance <a href="https://pubs.acs.org/doi/10.1021/acsnano.4c01787" class="citation" target="_blank">47</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Advanced Composites</h4>
+                  <p class="text-sm text-gray-600">
+                    Ternary composites combining carbon scaffolds, metal oxides, and conductive polymers create synergistic effects that enhance energy density, power density, and cycling stability simultaneously <a href="https://link.springer.com/article/10.1186/s11671-024-04053-1" class="citation" target="_blank">53</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                <p class="text-sm text-blue-800">
+                  <strong>Innovation Focus:</strong> Hierarchical nanostructures, core-shell architectures, and hybrid frameworks that optimize ion and electron transport pathways while maximizing active sites.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="serif-heading text-xl font-semibold mb-6 text-green-600">
+                <i class="fas fa-cogs mr-3"></i>Next-Generation Architectures
+              </h3>
+
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Hybrid Energy Storage Systems</h4>
+                  <p class="text-sm text-gray-600">
+                    Advanced battery-supercapacitor hybrids combining high energy density of batteries with high power density of supercapacitors, managed by sophisticated control algorithms for optimal performance <a href="https://www.sciencedirect.com/science/article/pii/S2214157X25000759" class="citation" target="_blank">258</a>.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">3D-Printed Electrodes</h4>
+                  <p class="text-sm text-gray-600">
+                    Additive manufacturing enables complex electrode geometries with optimized pore structures and integrated current collectors, reducing manufacturing costs while improving performance.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Flexible and Wearable Designs</h4>
+                  <p class="text-sm text-gray-600">
+                    Fiber-based and stretchable supercapacitors for integration into textiles and wearable devices, enabling new form factors and applications in health monitoring and smart clothing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-green-50 p-4 rounded-lg">
+                <p class="text-sm text-green-800">
+                  <strong>Manufacturing Innovation:</strong> Scalable production methods and cost reduction strategies targeting activated carbon costs below $10/kg for economic viability at scale.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h3 class="serif-heading text-xl font-semibold mb-6 text-purple-600">
+              <i class="fas fa-flask mr-3"></i>Electrolyte Innovation Frontiers
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold text-gray-800 mb-2">Room Temperature Ionic Liquids</h4>
+                <p class="text-sm text-gray-600">
+                  Development of new ILs with tailored cation-anion combinations to reduce viscosity while maintaining wide electrochemical windows and high thermal stability <a href="https://pubs.acs.org/doi/abs/10.1021/acs.energyfuels.4c00685" class="citation" target="_blank">169</a>.
+                </p>
+              </div>
+
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold text-gray-800 mb-2">Gel Polymer Electrolytes</h4>
+                <p class="text-sm text-gray-600">
+                  Advanced hydrogel and polymer electrolytes combining high ionic conductivity with mechanical integrity, enabling flexible and safe energy storage devices <a href="https://pubs.acs.org/doi/abs/10.1021/acsapm.5c00120" class="citation" target="_blank">163</a>.
+                </p>
+              </div>
+
+              <div class="border-l-4 border-purple-500 pl-4">
+                <h4 class="font-semibold text-gray-800 mb-2">Redox-Active Electrolytes</h4>
+                <p class="text-sm text-gray-600">
+                  Electrolytes with redox-active additives that contribute additional Faradaic capacitance through reversible reactions at the electrode-electrolyte interface <a href="https://www.mdpi.com/1420-3049/30/8/1764" class="citation" target="_blank">179</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3 class="serif-heading text-xl font-semibold mb-6 text-blue-800">
+              <i class="fas fa-chart-line mr-3"></i>Market Projections &amp; Opportunities
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-4">Growth Drivers</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                    <span>Electric vehicle adoption and need for high-power energy storage</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                    <span>Renewable energy integration requiring grid stabilization solutions</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                    <span>Consumer electronics demand for fast charging and long cycle life</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-right text-blue-500 mr-2 mt-1"></i>
+                    <span>Industrial automation and smart grid infrastructure development</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-4">Technology Roadmap</h4>
+                <div class="space-y-3">
+                  <div class="bg-blue-50 p-3 rounded">
+                    <p class="text-sm text-blue-800">
+                      <strong>2025-2027:</strong> Commercialization of advanced carbon materials and hybrid systems
+                    </p>
+                  </div>
+                  <div class="bg-green-50 p-3 rounded">
+                    <p class="text-sm text-green-800">
+                      <strong>2028-2030:</strong> Widespread adoption of MXenes and MOF-based electrodes
+                    </p>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded">
+                    <p class="text-sm text-purple-800">
+                      <strong>2030+:</strong> Next-generation ionic liquids and solid-state electrolytes
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
+              <p class="text-sm text-gray-800">
+                <strong>Market Projection:</strong> The supercapacitor energy storage market is expected to exceed <strong>$7 billion by 2028</strong>, driven by 15% compound annual growth rate and expanding applications across transportation, renewable energy, and consumer electronics sectors <a href="https://www.marketreportanalytics.com/reports/super-capacitors-battery-energy-storage-system-85514" class="citation" target="_blank">128</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-container mb-8">
+            <img src="https://kimi-web-img.moonshot.cn/img/cicenergigune.com/351e84b77e3dcb6349b6f72e37f0d8aa3eb3f7b4.jpg" alt="Supercapacitor technology research laboratory" class="w-full rounded-lg" size="large" aspect="wide" style="photo" query="supercapacitor research laboratory" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="text-sm">Future supercapacitor research and development</p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-lg border border-indigo-200">
+            <h3 class="serif-heading text-xl font-semibold mb-4 text-indigo-800">
+              <i class="fas fa-lightbulb mr-3"></i>Conclusion: The Path Forward
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Supercapacitors represent a transformative technology in the energy storage landscape, offering unique advantages that complement and enhance traditional battery systems. While challenges remain, particularly in energy density and cost, the trajectory of innovation points toward a future where supercapacitors play an increasingly central role in enabling sustainable energy solutions.
+            </p>
+            <p class="text-gray-700">
+              The convergence of advanced materials, innovative architectures, and sophisticated system integration approaches positions supercapacitors as critical enablers for the renewable energy transition, electric transportation revolution, and smart grid infrastructure development. As research continues to push the boundaries of what&#39;s possible, we can expect to see supercapacitors emerge as a cornerstone technology in the global effort to create a more sustainable and efficient energy future.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 px-8">
+        <div class="container mx-auto max-w-4xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="serif-heading text-xl font-semibold mb-4">About This Review</h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                This comprehensive academic review synthesizes current research and development in supercapacitor technology, providing insights into fundamental principles, materials science, applications, and future directions for researchers, engineers, and policymakers in the energy storage field.
+              </p>
+            </div>
+            <div>
+              <h3 class="serif-heading text-xl font-semibold mb-4">Key References</h3>
+              <div class="space-y-2 text-sm text-gray-300">
+                <p>• Wikipedia: Supercapacitor Technology Overview</p>
+                <p>• Advanced Energy Storage Research Journal</p>
+                <p>• Nature Energy &amp; ACS Nano Publications</p>
+                <p>• Market Research Analytics Reports</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400 text-sm">
+              This review is based on peer-reviewed scientific literature and industry reports. All citations are linked to their original sources for further reference.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#1e293b',
+                lineColor: '#64748b',
+                secondaryColor: '#f1f5f9',
+                tertiaryColor: '#ffffff',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f8fafc',
+                tertiaryBkg: '#f1f5f9',
+                nodeBorder: '#1e293b',
+                clusterBkg: '#f8fafc',
+                clusterBorder: '#e2e8f0',
+                defaultLinkColor: '#64748b',
+                titleColor: '#1e293b',
+                edgeLabelBackground: '#ffffff',
+                nodeTextColor: '#1e293b',
+                // Enhanced contrast settings
+                cScale0: '#93c5fd',
+                cScale1: '#a5b4fc', 
+                cScale2: '#c7d2fe',
+                cScale3: '#fde68a',
+                cScale4: '#86efac',
+                cScale5: '#a5f3fc',
+                cScale6: '#e0e7ff',
+                cScale7: '#fecaca',
+                // Ensure text is always readable
+                textColor: '#1e293b',
+                labelTextColor: '#1e293b'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20,
+                nodeSpacing: 50,
+                rankSpacing: 80
+            },
+            fontFamily: 'Inter, sans-serif',
+            fontSize: 14,
+            securityLevel: 'loose'
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Table of Contents functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const tocToggle = document.getElementById('toc-toggle');
+            const toc = document.getElementById('toc');
+            
+            // Smooth scrolling for TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 20;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close TOC on mobile after clicking
+                    if (window.innerWidth < 1024) {
+                        toc.classList.remove('open');
+                    }
+                });
+            });
+            
+            // Active section highlighting
+            function updateActiveSection() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Update active section on scroll
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Toggle TOC on mobile
+            tocToggle.addEventListener('click', function() {
+                toc.classList.toggle('open');
+            });
+            
+            // Close TOC when clicking outside (on mobile)
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth < 1024 && 
+                    !toc.contains(event.target) && 
+                    event.target !== tocToggle &&
+                    toc.classList.contains('open')) {
+                    toc.classList.remove('open');
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    toc.classList.remove('open');
+                }
+            });
+            
+            // Initialize
+            updateActiveSection();
+            
+            // Initialize Mermaid Controls
+            initializeMermaidControls();
+        });
+    </script>
+  
+
+</body></html>
